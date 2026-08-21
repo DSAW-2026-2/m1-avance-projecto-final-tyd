@@ -1,0 +1,530 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MiHato — Control digital para tu hato ganadero</title>
+    <meta
+      name="description"
+      content="MiHato es la plataforma para que dueños de fincas ganaderas pequeñas y medianas en Colombia dejen el cuaderno y el Excel: control de animales, alertas de vacunación y trazabilidad lista para el ICA."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        if (localStorage.getItem("mihato:theme") === "dark") document.documentElement.classList.add("dark");
+      } catch {
+        /* localStorage no disponible */
+      }
+    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%234b6b3a'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/main-DiCKvlUh.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/utils-CvC1LC_K.js">
+    <link rel="stylesheet" crossorigin href="./assets/utils-BxwgMFup.css">
+  </head>
+  <body class="font-body bg-bg text-text">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[300] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-control"
+      >Saltar al contenido principal</a
+    >
+
+    <header id="site-header" class="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center gap-4">
+        <a href="#top" class="flex items-center gap-2.5 focus-ring rounded-control shrink-0">
+          <span class="grid place-items-center size-9 rounded-full bg-primary-soft text-primary" data-icon="logo" data-icon-size="size-5"></span>
+          <span class="font-display font-semibold text-lg text-text">MiHato</span>
+        </a>
+
+        <nav aria-label="Navegación del sitio" class="hidden md:flex items-center gap-1 mx-auto">
+          <a href="#problema" class="rounded-control px-3.5 py-2 text-sm font-medium text-text-muted hover:text-text hover:bg-surface-alt focus-ring">El problema</a>
+          <a href="#solucion" class="rounded-control px-3.5 py-2 text-sm font-medium text-text-muted hover:text-text hover:bg-surface-alt focus-ring">La solución</a>
+          <a href="#como-funciona" class="rounded-control px-3.5 py-2 text-sm font-medium text-text-muted hover:text-text hover:bg-surface-alt focus-ring">Cómo funciona</a>
+          <a href="#para-quien" class="rounded-control px-3.5 py-2 text-sm font-medium text-text-muted hover:text-text hover:bg-surface-alt focus-ring">¿Es para ti?</a>
+          <a href="#faq" class="rounded-control px-3.5 py-2 text-sm font-medium text-text-muted hover:text-text hover:bg-surface-alt focus-ring">FAQ</a>
+          <a href="contacto.html" class="rounded-control px-3.5 py-2 text-sm font-medium text-text-muted hover:text-text hover:bg-surface-alt focus-ring">Contacto</a>
+        </nav>
+
+        <div class="flex items-center gap-2 ml-auto md:ml-0">
+          <button
+            type="button"
+            id="theme-toggle"
+            class="focus-ring grid place-items-center size-10 rounded-control text-text-muted hover:bg-surface-alt hover:text-text"
+            aria-pressed="false"
+            aria-label="Cambiar a modo oscuro"
+          >
+            <span data-icon="moon" data-icon-size="size-5"></span>
+          </button>
+          <a
+            href="dashboard.html"
+            class="hidden sm:inline-flex focus-ring items-center gap-2 rounded-control bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-hover"
+          >
+            Probar la plataforma
+          </a>
+          <button
+            type="button"
+            id="mobile-menu-toggle"
+            class="md:hidden focus-ring grid place-items-center size-10 rounded-control text-text-muted hover:bg-surface-alt hover:text-text"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Abrir menú de navegación"
+          >
+            <span data-icon="menu" data-icon-size="size-5"></span>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-surface px-4 sm:px-6 py-4">
+        <nav aria-label="Navegación del sitio (móvil)" class="flex flex-col gap-1">
+          <a href="#problema" class="rounded-control px-3.5 py-2.5 text-sm font-medium text-text hover:bg-surface-alt focus-ring">El problema</a>
+          <a href="#solucion" class="rounded-control px-3.5 py-2.5 text-sm font-medium text-text hover:bg-surface-alt focus-ring">La solución</a>
+          <a href="#como-funciona" class="rounded-control px-3.5 py-2.5 text-sm font-medium text-text hover:bg-surface-alt focus-ring">Cómo funciona</a>
+          <a href="#para-quien" class="rounded-control px-3.5 py-2.5 text-sm font-medium text-text hover:bg-surface-alt focus-ring">¿Es para ti?</a>
+          <a href="#faq" class="rounded-control px-3.5 py-2.5 text-sm font-medium text-text hover:bg-surface-alt focus-ring">FAQ</a>
+          <a href="contacto.html" class="rounded-control px-3.5 py-2.5 text-sm font-medium text-text hover:bg-surface-alt focus-ring">Contacto</a>
+          <a href="dashboard.html" class="mt-2 focus-ring flex items-center justify-center gap-2 rounded-control bg-primary px-4 py-2.5 text-sm font-semibold text-white hover:bg-primary-hover">
+            Probar la plataforma
+          </a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="contenido">
+      <section id="top" class="relative overflow-hidden bg-dot-grid">
+        <div class="absolute -top-24 -right-24 size-80 rounded-full bg-primary/15 blur-3xl -z-10" aria-hidden="true"></div>
+        <div class="absolute top-40 -left-24 size-72 rounded-full bg-accent/15 blur-3xl -z-10" aria-hidden="true"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 pt-14 sm:pt-20 pb-20 sm:pb-28 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+          <div class="reveal">
+            <span class="inline-flex items-center gap-2 rounded-full bg-primary-soft text-primary text-xs font-semibold px-3.5 py-1.5">
+              <span data-icon="mapPin" data-icon-size="size-3.5"></span>
+              Para fincas ganaderas de 50 a 300 cabezas en Colombia
+            </span>
+            <h1 class="font-display text-4xl sm:text-5xl lg:text-[3.25rem] leading-[1.1] font-semibold text-text mt-5">
+              El control de tu hato, <span class="text-primary">sin cuadernos ni Excel.</span>
+            </h1>
+            <p class="mt-5 text-base sm:text-lg text-text-muted leading-relaxed max-w-xl">
+              MiHato es la plataforma digital para que dueños de fincas ganaderas pequeñas y medianas lleven el control de su hato de verdad: cuántos animales tienen, cuándo vacunaron a cada uno, y qué mostrar cuando el ICA o un comprador pide trazabilidad.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a
+                href="dashboard.html"
+                class="focus-ring inline-flex items-center justify-center gap-2 rounded-control bg-primary px-6 py-3.5 text-sm font-semibold text-white hover:bg-primary-hover shadow-soft"
+              >
+                Probar la plataforma
+                <span data-icon="arrowRight" data-icon-size="size-4"></span>
+              </a>
+              <a
+                href="#problema"
+                class="focus-ring inline-flex items-center justify-center gap-2 rounded-control border border-border bg-surface px-6 py-3.5 text-sm font-semibold text-text hover:bg-surface-alt"
+              >
+                Ver el problema
+              </a>
+            </div>
+            <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2">
+              <li class="flex items-center gap-2 text-sm text-text-muted"><span class="text-primary" data-icon="check" data-icon-size="size-4"></span>Sin instalar nada</li>
+              <li class="flex items-center gap-2 text-sm text-text-muted"><span class="text-primary" data-icon="check" data-icon-size="size-4"></span>Pensado para el campo</li>
+              <li class="flex items-center gap-2 text-sm text-text-muted"><span class="text-primary" data-icon="check" data-icon-size="size-4"></span>Reportes listos para el ICA</li>
+            </ul>
+          </div>
+
+          <div class="reveal [transition-delay:120ms] relative mx-auto lg:mx-0 max-w-md w-full">
+            <div class="relative rounded-card border border-border bg-surface shadow-lifted p-5 sm:p-6">
+              <div class="flex items-center gap-1.5 pb-4 border-b border-border">
+                <span class="size-2.5 rounded-full bg-danger/50"></span>
+                <span class="size-2.5 rounded-full bg-warning/50"></span>
+                <span class="size-2.5 rounded-full bg-success/50"></span>
+                <span class="ml-2 text-xs font-medium text-text-muted">MiHato · Dashboard</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3 mt-4">
+                <div class="rounded-control bg-surface-alt p-3.5">
+                  <p class="text-[11px] text-text-muted">Cabezas activas</p>
+                  <p class="font-display text-2xl font-semibold text-text mt-1 tabular">184</p>
+                </div>
+                <div class="rounded-control bg-danger-soft p-3.5">
+                  <p class="text-[11px] text-danger">Alertas</p>
+                  <p class="font-display text-2xl font-semibold text-danger mt-1 tabular">6</p>
+                </div>
+              </div>
+              <div class="mt-3 space-y-2">
+                <div class="flex items-center gap-2.5 rounded-control bg-surface-alt px-3 py-2.5">
+                  <span class="shrink-0 size-7 rounded-full bg-danger-soft text-danger grid place-items-center" data-icon="alertTriangle" data-icon-size="size-3.5"></span>
+                  <span class="flex-1 text-xs text-text">COR-0281 · Vencida hace 4 días</span>
+                </div>
+                <div class="flex items-center gap-2.5 rounded-control bg-surface-alt px-3 py-2.5">
+                  <span class="shrink-0 size-7 rounded-full bg-success-soft text-success grid place-items-center" data-icon="checkCircle" data-icon-size="size-3.5"></span>
+                  <span class="flex-1 text-xs text-text">COR-0245 · Al día</span>
+                </div>
+              </div>
+            </div>
+            <div class="hidden sm:flex absolute -bottom-6 -left-8 items-center gap-2.5 rounded-card bg-surface border border-border shadow-lifted px-4 py-3">
+              <span class="shrink-0 size-9 rounded-full bg-primary-soft text-primary grid place-items-center" data-icon="clipboard" data-icon-size="size-4.5"></span>
+              <div class="leading-tight">
+                <p class="text-xs font-semibold text-text">Reporte para el ICA</p>
+                <p class="text-[11px] text-text-muted">Listo en un clic</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="problema" class="scroll-mt-16 max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24">
+        <div class="reveal max-w-2xl">
+          <span class="text-xs font-semibold uppercase tracking-wide text-danger">El problema</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-semibold text-text mt-3">Así se maneja hoy la mayoría de los hatos</h2>
+          <p class="mt-4 text-base text-text-muted leading-relaxed">
+            Cuadernos que se mojan en el potrero, hojas de Excel que nadie actualiza, fechas de vacunación que solo el mayordomo recuerda. El resultado: errores de conteo, vacunas aplicadas tarde y cero trazabilidad el día que alguien la pide.
+          </p>
+        </div>
+
+        <div class="mt-10 grid md:grid-cols-3 gap-5">
+          <div class="reveal rounded-card border border-border bg-surface shadow-soft p-6">
+            <span class="inline-grid place-items-center size-11 rounded-full bg-danger-soft text-danger" data-icon="tally" data-icon-size="size-5"></span>
+            <h3 class="font-display text-lg font-semibold text-text mt-4">Se cuenta a mano</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">
+              Contar 200 cabezas a ojo, con rayitas en un cuaderno, significa animales contados dos veces… o ninguna.
+            </p>
+          </div>
+          <div class="reveal [transition-delay:80ms] rounded-card border border-border bg-surface shadow-soft p-6">
+            <span class="inline-grid place-items-center size-11 rounded-full bg-warning-soft text-warning" data-icon="calendar" data-icon-size="size-5"></span>
+            <h3 class="font-display text-lg font-semibold text-text mt-4">Se pasan las fechas de vacunación</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">
+              Sin un calendario claro, la Fiebre Aftosa o la Brucelosis se aplican tarde, o simplemente se olvidan.
+            </p>
+          </div>
+          <div class="reveal [transition-delay:160ms] rounded-card border border-border bg-surface shadow-soft p-6">
+            <span class="inline-grid place-items-center size-11 rounded-full bg-danger-soft text-danger" data-icon="xCircle" data-icon-size="size-5"></span>
+            <h3 class="font-display text-lg font-semibold text-text mt-4">No hay trazabilidad cuando la piden</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">
+              Cuando el ICA visita la finca o un comprador pide el historial, no hay cómo mostrar de un vistazo que todo está en regla.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="solucion" class="scroll-mt-16 bg-surface border-y border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24">
+          <div class="reveal max-w-2xl">
+            <span class="text-xs font-semibold uppercase tracking-wide text-primary">La solución</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-semibold text-text mt-3">MiHato reemplaza el cuaderno por control real</h2>
+            <p class="mt-4 text-base text-text-muted leading-relaxed">
+              Todo lo que hoy anotas a mano —tus animales, sus vacunas, su historial— vive en un solo lugar, siempre actualizado y listo para mostrar.
+            </p>
+          </div>
+
+          <div class="mt-10 grid sm:grid-cols-2 gap-5">
+            <div class="reveal rounded-card bg-bg border border-border p-6">
+              <span class="inline-grid place-items-center size-11 rounded-full bg-primary-soft text-primary" data-icon="tag" data-icon-size="size-5"></span>
+              <h3 class="font-display text-lg font-semibold text-text mt-4">Control de animales</h3>
+              <p class="mt-2 text-sm text-text-muted leading-relaxed">
+                Registra cada cabeza con arete, categoría, peso y potrero. Busca y filtra tu hato completo en segundos.
+              </p>
+            </div>
+            <div class="reveal [transition-delay:80ms] rounded-card bg-bg border border-border p-6">
+              <span class="inline-grid place-items-center size-11 rounded-full bg-primary-soft text-primary" data-icon="syringe" data-icon-size="size-5"></span>
+              <h3 class="font-display text-lg font-semibold text-text mt-4">Alertas de vacunación</h3>
+              <p class="mt-2 text-sm text-text-muted leading-relaxed">
+                Aftosa y Brucelosis se controlan solas: sabes qué animal está vencido, próximo o al día, sin revisar cuadernos.
+              </p>
+            </div>
+            <div class="reveal [transition-delay:160ms] rounded-card bg-bg border border-border p-6">
+              <span class="inline-grid place-items-center size-11 rounded-full bg-primary-soft text-primary" data-icon="clipboard" data-icon-size="size-5"></span>
+              <h3 class="font-display text-lg font-semibold text-text mt-4">Trazabilidad al instante</h3>
+              <p class="mt-2 text-sm text-text-muted leading-relaxed">
+                Genera el reporte que pide el ICA o un comprador, expórtalo en CSV o imprímelo, en un par de clics.
+              </p>
+            </div>
+            <div class="reveal [transition-delay:240ms] rounded-card bg-bg border border-border p-6">
+              <span class="inline-grid place-items-center size-11 rounded-full bg-primary-soft text-primary" data-icon="device" data-icon-size="size-5"></span>
+              <h3 class="font-display text-lg font-semibold text-text mt-4">Funciona en cualquier dispositivo</h3>
+              <p class="mt-2 text-sm text-text-muted leading-relaxed">
+                Desde el celular en el potrero o el computador de la oficina, MiHato se ve y funciona igual de bien.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="como-funciona" class="scroll-mt-16 max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24">
+        <div class="reveal max-w-2xl">
+          <span class="text-xs font-semibold uppercase tracking-wide text-accent">Cómo funciona</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-semibold text-text mt-3">De cero a trazabilidad en tres pasos</h2>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-3 gap-8 md:gap-6 relative">
+          <div class="hidden md:block absolute top-6 left-[16.5%] right-[16.5%] h-px bg-border" aria-hidden="true"></div>
+
+          <div class="reveal relative">
+            <span class="relative z-10 grid place-items-center size-12 rounded-full bg-primary text-white font-display text-lg font-semibold shadow-soft">1</span>
+            <h3 class="font-display text-lg font-semibold text-text mt-4">Registra tu finca y tus animales</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">Datos básicos de cada cabeza: arete, categoría, peso, potrero. Sin capacitación técnica.</p>
+          </div>
+          <div class="reveal [transition-delay:80ms] relative">
+            <span class="relative z-10 grid place-items-center size-12 rounded-full bg-primary text-white font-display text-lg font-semibold shadow-soft">2</span>
+            <h3 class="font-display text-lg font-semibold text-text mt-4">MiHato cuida las fechas</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">El sistema calcula solo cuándo vence cada vacuna y te avisa antes de que sea tarde.</p>
+          </div>
+          <div class="reveal [transition-delay:160ms] relative">
+            <span class="relative z-10 grid place-items-center size-12 rounded-full bg-primary text-white font-display text-lg font-semibold shadow-soft">3</span>
+            <h3 class="font-display text-lg font-semibold text-text mt-4">Genera tu reporte cuando lo pidan</h3>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">ICA, comprador o banco: exporta el historial completo en segundos.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="para-quien" class="scroll-mt-16 bg-surface border-y border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 grid lg:grid-cols-2 gap-12 items-center">
+          <div class="reveal">
+            <span class="text-xs font-semibold uppercase tracking-wide text-primary">¿Es para tu finca?</span>
+            <h2 class="font-display text-3xl sm:text-4xl font-semibold text-text mt-3">
+              Pensado para el ganadero, no para un departamento de sistemas
+            </h2>
+            <ul class="mt-6 space-y-3.5">
+              <li class="flex items-start gap-3">
+                <span class="shrink-0 mt-0.5 grid place-items-center size-6 rounded-full bg-primary-soft text-primary" data-icon="check" data-icon-size="size-3.5"></span>
+                <span class="text-sm sm:text-base text-text-muted">Tienes entre 50 y 300 cabezas de ganado</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="shrink-0 mt-0.5 grid place-items-center size-6 rounded-full bg-primary-soft text-primary" data-icon="check" data-icon-size="size-3.5"></span>
+                <span class="text-sm sm:text-base text-text-muted">Hoy llevas el control en cuaderno, Excel o de memoria</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="shrink-0 mt-0.5 grid place-items-center size-6 rounded-full bg-primary-soft text-primary" data-icon="check" data-icon-size="size-3.5"></span>
+                <span class="text-sm sm:text-base text-text-muted">Te ha tocado buscar información de vacunación bajo presión, con el ICA o un comprador esperando</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="shrink-0 mt-0.5 grid place-items-center size-6 rounded-full bg-primary-soft text-primary" data-icon="check" data-icon-size="size-3.5"></span>
+                <span class="text-sm sm:text-base text-text-muted">Quieres algo simple, sin curva de aprendizaje ni instalaciones complicadas</span>
+              </li>
+            </ul>
+            <a
+              href="dashboard.html"
+              class="focus-ring mt-8 inline-flex items-center gap-2 rounded-control bg-primary px-6 py-3.5 text-sm font-semibold text-white hover:bg-primary-hover shadow-soft"
+            >
+              Probar la plataforma
+              <span data-icon="arrowRight" data-icon-size="size-4"></span>
+            </a>
+          </div>
+
+          <div class="reveal [transition-delay:120ms]">
+            <div class="rounded-card bg-bg border border-border shadow-lifted p-6 sm:p-7">
+              <div class="flex items-start justify-between gap-4 pb-5 border-b border-border">
+                <div>
+                  <p class="text-[11px] font-medium text-text-muted uppercase tracking-wide">Reporte de trazabilidad</p>
+                  <p class="font-display text-lg font-semibold text-text mt-1">Finca La Esperanza</p>
+                  <p class="text-sm text-text-muted">Vereda El Progreso, Montería, Córdoba</p>
+                </div>
+                <span class="shrink-0 grid place-items-center size-10 rounded-full bg-primary-soft text-primary" data-icon="clipboard" data-icon-size="size-5"></span>
+              </div>
+              <div class="mt-5 grid grid-cols-3 gap-3 text-center">
+                <div class="rounded-control bg-surface-alt py-3">
+                  <p class="font-display text-xl font-semibold text-text tabular">184</p>
+                  <p class="text-[11px] text-text-muted mt-0.5">Activos</p>
+                </div>
+                <div class="rounded-control bg-success-soft py-3">
+                  <p class="font-display text-xl font-semibold text-success tabular">142</p>
+                  <p class="text-[11px] text-success mt-0.5">Al día</p>
+                </div>
+                <div class="rounded-control bg-danger-soft py-3">
+                  <p class="font-display text-xl font-semibold text-danger tabular">6</p>
+                  <p class="text-[11px] text-danger mt-0.5">Alertas</p>
+                </div>
+              </div>
+              <p class="mt-5 text-xs text-text-muted text-center">Código ICA · COR-04521 — generado en un clic, sin buscar en cuadernos viejos.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="scroll-mt-16 max-w-4xl mx-auto px-4 sm:px-6 py-20 sm:py-24">
+        <div class="reveal text-center">
+          <span class="text-xs font-semibold uppercase tracking-wide text-accent">Preguntas frecuentes</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-semibold text-text mt-3">Lo que más nos preguntan</h2>
+          <p class="mt-4 text-base text-text-muted leading-relaxed max-w-xl mx-auto">
+            Si tienes dudas antes de probar MiHato, seguro alguna de estas respuestas te ayuda.
+          </p>
+        </div>
+
+        <div class="reveal [transition-delay:80ms] mt-8">
+          <div class="relative">
+            <span class="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-text-muted" data-icon="search" data-icon-size="size-4.5"></span>
+            <input
+              id="faq-search"
+              type="search"
+              placeholder="Busca una pregunta… por ejemplo, “vacunación”"
+              class="focus-ring w-full rounded-control border border-border bg-surface pl-11 pr-24 py-3.5 text-sm text-text placeholder:text-text-muted shadow-soft"
+              autocomplete="off"
+            />
+            <button
+              type="button"
+              id="faq-palette-hint"
+              class="hidden sm:flex absolute right-2.5 top-1/2 -translate-y-1/2 items-center gap-1 rounded-control border border-border bg-surface-alt px-2 py-1 text-[11px] font-medium text-text-muted hover:text-text hover:bg-border/40 focus-ring"
+              aria-label="Abrir buscador de preguntas frecuentes (Ctrl K)"
+            >
+              <kbd class="font-sans">Ctrl</kbd><kbd class="font-sans">K</kbd>
+            </button>
+          </div>
+          <p id="faq-empty" class="hidden mt-4 text-center text-sm text-text-muted">No encontramos preguntas con esa búsqueda.</p>
+        </div>
+
+        <div id="faq-list" class="reveal [transition-delay:120ms] mt-6 space-y-3">
+          <details class="faq-item group rounded-card border border-border bg-surface shadow-soft open:shadow-lifted" data-faq-id="que-es">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-display font-medium text-text focus-ring rounded-card">
+              <span>¿Qué es MiHato?</span>
+              <span class="shrink-0 text-text-muted transition-transform group-open:rotate-180" data-icon="chevronDown" data-icon-size="size-4.5"></span>
+            </summary>
+            <p class="px-5 pb-4 text-sm text-text-muted leading-relaxed">
+              MiHato es una plataforma digital para que dueños de fincas ganaderas pequeñas y medianas en Colombia controlen su hato sin cuadernos ni hojas de Excel: animales, vacunación y trazabilidad en un solo lugar.
+            </p>
+          </details>
+
+          <details class="faq-item group rounded-card border border-border bg-surface shadow-soft open:shadow-lifted" data-faq-id="tamano">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-display font-medium text-text focus-ring rounded-card">
+              <span>¿Para qué tamaño de finca sirve?</span>
+              <span class="shrink-0 text-text-muted transition-transform group-open:rotate-180" data-icon="chevronDown" data-icon-size="size-4.5"></span>
+            </summary>
+            <p class="px-5 pb-4 text-sm text-text-muted leading-relaxed">
+              Está pensada para hatos de 50 a 300 cabezas: el rango donde el cuaderno ya se queda corto, pero un sistema empresarial complicado resulta innecesario.
+            </p>
+          </details>
+
+          <details class="faq-item group rounded-card border border-border bg-surface shadow-soft open:shadow-lifted" data-faq-id="instalar">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-display font-medium text-text focus-ring rounded-card">
+              <span>¿Necesito instalar algo?</span>
+              <span class="shrink-0 text-text-muted transition-transform group-open:rotate-180" data-icon="chevronDown" data-icon-size="size-4.5"></span>
+            </summary>
+            <p class="px-5 pb-4 text-sm text-text-muted leading-relaxed">
+              No. MiHato funciona desde el navegador, en el computador o en el celular, sin instalaciones ni actualizaciones.
+            </p>
+          </details>
+
+          <details class="faq-item group rounded-card border border-border bg-surface shadow-soft open:shadow-lifted" data-faq-id="vacunas">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-display font-medium text-text focus-ring rounded-card">
+              <span>¿Qué vacunas controla?</span>
+              <span class="shrink-0 text-text-muted transition-transform group-open:rotate-180" data-icon="chevronDown" data-icon-size="size-4.5"></span>
+            </summary>
+            <p class="px-5 pb-4 text-sm text-text-muted leading-relaxed">
+              Por ahora, Fiebre Aftosa y Brucelosis —de control obligatorio ICA— además de Carbón Bacteridiano, IBR-DVB-PI3 y Rabia Bovina. El sistema avisa cuándo cada dosis está vencida o próxima.
+            </p>
+          </details>
+
+          <details class="faq-item group rounded-card border border-border bg-surface shadow-soft open:shadow-lifted" data-faq-id="reporte-ica">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-display font-medium text-text focus-ring rounded-card">
+              <span>¿Puedo generar un reporte para el ICA o un comprador?</span>
+              <span class="shrink-0 text-text-muted transition-transform group-open:rotate-180" data-icon="chevronDown" data-icon-size="size-4.5"></span>
+            </summary>
+            <p class="px-5 pb-4 text-sm text-text-muted leading-relaxed">
+              Sí. Desde Trazabilidad puedes generar el reporte de todo el hato o de un animal en particular, exportarlo en CSV o imprimirlo, en un par de clics.
+            </p>
+          </details>
+
+          <details class="faq-item group rounded-card border border-border bg-surface shadow-soft open:shadow-lifted" data-faq-id="datos">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-display font-medium text-text focus-ring rounded-card">
+              <span>¿Dónde se guardan mis datos?</span>
+              <span class="shrink-0 text-text-muted transition-transform group-open:rotate-180" data-icon="chevronDown" data-icon-size="size-4.5"></span>
+            </summary>
+            <p class="px-5 pb-4 text-sm text-text-muted leading-relaxed">
+              Este es un prototipo académico: la información se guarda localmente en tu propio navegador, no en un servidor externo. Es ideal para explorar cómo funcionaría MiHato en la vida real.
+            </p>
+          </details>
+
+          <details class="faq-item group rounded-card border border-border bg-surface shadow-soft open:shadow-lifted" data-faq-id="costo">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-display font-medium text-text focus-ring rounded-card">
+              <span>¿Tiene algún costo probarlo?</span>
+              <span class="shrink-0 text-text-muted transition-transform group-open:rotate-180" data-icon="chevronDown" data-icon-size="size-4.5"></span>
+            </summary>
+            <p class="px-5 pb-4 text-sm text-text-muted leading-relaxed">
+              No. Puedes explorar toda la plataforma sin registrarte ni ingresar datos de pago.
+            </p>
+          </details>
+
+          <details class="faq-item group rounded-card border border-border bg-surface shadow-soft open:shadow-lifted" data-faq-id="celular">
+            <summary class="flex items-center justify-between gap-4 cursor-pointer list-none px-5 py-4 font-display font-medium text-text focus-ring rounded-card">
+              <span>¿Funciona bien desde el celular?</span>
+              <span class="shrink-0 text-text-muted transition-transform group-open:rotate-180" data-icon="chevronDown" data-icon-size="size-4.5"></span>
+            </summary>
+            <p class="px-5 pb-4 text-sm text-text-muted leading-relaxed">
+              Sí. La interfaz se adapta automáticamente al tamaño de pantalla, pensada para usarse también desde el potrero.
+            </p>
+          </details>
+        </div>
+
+        <div class="reveal mt-10 text-center">
+          <p class="text-sm text-text-muted">¿No encontraste lo que buscabas?</p>
+          <a
+            href="contacto.html"
+            class="focus-ring mt-3 inline-flex items-center gap-2 rounded-control border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-text hover:bg-surface-alt"
+          >
+            Contáctanos
+            <span data-icon="arrowRight" data-icon-size="size-4"></span>
+          </a>
+        </div>
+      </section>
+
+      <section class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20">
+        <div class="reveal relative overflow-hidden rounded-card bg-primary px-6 sm:px-12 py-14 sm:py-16 text-center">
+          <div class="absolute -top-16 -left-16 size-64 rounded-full bg-white/10 blur-3xl" aria-hidden="true"></div>
+          <div class="absolute -bottom-20 -right-10 size-72 rounded-full bg-white/10 blur-3xl" aria-hidden="true"></div>
+          <h2 class="relative font-display text-3xl sm:text-4xl font-semibold text-white max-w-xl mx-auto">Deja el cuaderno. Controla tu hato desde hoy.</h2>
+          <p class="relative mt-3 text-white/85 max-w-md mx-auto">Es gratis probarlo: sin tarjeta ni instalaciones.</p>
+          <div class="relative mt-7 flex flex-col sm:flex-row gap-3 justify-center">
+            <a
+              href="dashboard.html"
+              class="focus-ring inline-flex items-center justify-center gap-2 rounded-control bg-white px-6 py-3.5 text-sm font-semibold text-primary hover:bg-white/90"
+            >
+              Probar la plataforma
+              <span data-icon="arrowRight" data-icon-size="size-4"></span>
+            </a>
+            <a
+              href="contacto.html"
+              class="focus-ring inline-flex items-center justify-center gap-2 rounded-control border border-white/40 px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/10"
+            >
+              Hablar con nosotros
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-border bg-surface">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="lg:col-span-2">
+          <a href="#top" class="flex items-center gap-2.5 focus-ring rounded-control w-fit">
+            <span class="grid place-items-center size-9 rounded-full bg-primary-soft text-primary" data-icon="logo" data-icon-size="size-5"></span>
+            <span class="font-display font-semibold text-lg text-text">MiHato</span>
+          </a>
+          <p class="mt-3 text-sm text-text-muted max-w-sm leading-relaxed">Control digital para el hato ganadero colombiano: animales, vacunación y trazabilidad en un solo lugar.</p>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-text-muted">Producto</p>
+          <ul class="mt-3 space-y-2.5">
+            <li><a href="#problema" class="text-sm text-text-muted hover:text-text focus-ring rounded">El problema</a></li>
+            <li><a href="#solucion" class="text-sm text-text-muted hover:text-text focus-ring rounded">La solución</a></li>
+            <li><a href="#como-funciona" class="text-sm text-text-muted hover:text-text focus-ring rounded">Cómo funciona</a></li>
+            <li><a href="#faq" class="text-sm text-text-muted hover:text-text focus-ring rounded">Preguntas frecuentes</a></li>
+            <li><a href="contacto.html" class="text-sm text-text-muted hover:text-text focus-ring rounded">Contacto</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wide text-text-muted">Plataforma</p>
+          <ul class="mt-3 space-y-2.5">
+            <li><a href="dashboard.html" class="text-sm text-text-muted hover:text-text focus-ring rounded">Dashboard</a></li>
+            <li><a href="animales.html" class="text-sm text-text-muted hover:text-text focus-ring rounded">Animales</a></li>
+            <li><a href="vacunacion.html" class="text-sm text-text-muted hover:text-text focus-ring rounded">Vacunación</a></li>
+            <li><a href="trazabilidad.html" class="text-sm text-text-muted hover:text-text focus-ring rounded">Trazabilidad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-border">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row gap-2 justify-between items-center text-xs text-text-muted">
+          <p>© 2026 MiHato. Proyecto académico de Diseño y Arquitectura Web.</p>
+          <p>Prototipo con datos de demostración.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
