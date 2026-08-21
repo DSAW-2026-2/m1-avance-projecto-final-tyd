@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Trazabilidad · MiHato</title>
+    <meta name="description" content="Reportes de trazabilidad para el ICA o compradores." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        if (localStorage.getItem("mihato:theme") === "dark") document.documentElement.classList.add("dark");
+      } catch {
+        /* localStorage no disponible */
+      }
+    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%234b6b3a'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/trazabilidad-D9LuA-7F.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/utils-CvC1LC_K.js">
+    <link rel="modulepreload" crossorigin href="./assets/layout-CZHZwXwL.js">
+    <link rel="modulepreload" crossorigin href="./assets/badges-BpIjWwjw.js">
+    <link rel="modulepreload" crossorigin href="./assets/toast-Dsopc036.js">
+    <link rel="stylesheet" crossorigin href="./assets/utils-BxwgMFup.css">
+  </head>
+  <body class="font-body">
+    <div id="sidebar-root"></div>
+    <div class="lg:pl-64 flex flex-col min-h-dvh">
+      <div id="topbar-root"></div>
+      <main id="main-content" class="flex-1 px-4 sm:px-6 py-6 pb-24 lg:pb-10 outline-none">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3 no-print">
+          <label class="sr-only" for="report-scope">Alcance del reporte</label>
+          <select id="report-scope" class="focus-ring flex-1 sm:flex-none sm:min-w-[260px] rounded-control border border-border bg-surface px-3.5 py-2.5 text-sm text-text">
+            <option value="hato">Todo el hato (activos)</option>
+          </select>
+          <div class="flex gap-2 sm:ml-auto">
+            <button type="button" id="btn-csv" class="focus-ring inline-flex items-center gap-2 rounded-control border border-border px-3.5 py-2.5 text-sm font-medium text-text hover:bg-surface-alt"></button>
+            <button type="button" id="btn-print" class="focus-ring inline-flex items-center gap-2 rounded-control bg-primary px-3.5 py-2.5 text-sm font-semibold text-white hover:bg-primary-hover"></button>
+          </div>
+        </div>
+
+        <div id="report" class="mt-5 rounded-card border border-border bg-surface shadow-soft p-6 sm:p-8"></div>
+      </main>
+    </div>
+    <div id="bottomnav-root"></div>
+  </body>
+</html>

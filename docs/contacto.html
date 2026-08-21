@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contacto · MiHato</title>
+    <meta name="description" content="Cuéntanos sobre tu finca y hablemos de cómo MiHato puede ayudarte a controlar tu hato." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        if (localStorage.getItem("mihato:theme") === "dark") document.documentElement.classList.add("dark");
+      } catch {
+        /* localStorage no disponible */
+      }
+    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%234b6b3a'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/contacto-D13jyiCq.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/utils-CvC1LC_K.js">
+    <link rel="stylesheet" crossorigin href="./assets/utils-BxwgMFup.css">
+  </head>
+  <body class="font-body bg-bg text-text">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-[300] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-control"
+      >Saltar al contenido principal</a
+    >
+
+    <header class="sticky top-0 z-40 border-b border-border bg-surface/90 backdrop-blur">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center gap-4">
+        <a href="index.html" class="flex items-center gap-2.5 focus-ring rounded-control shrink-0">
+          <span class="grid place-items-center size-9 rounded-full bg-primary-soft text-primary" data-icon="logo" data-icon-size="size-5"></span>
+          <span class="font-display font-semibold text-lg text-text">MiHato</span>
+        </a>
+        <a href="index.html" class="ml-auto focus-ring inline-flex items-center gap-2 rounded-control px-3.5 py-2 text-sm font-medium text-text-muted hover:text-text hover:bg-surface-alt">
+          <span data-icon="arrowLeft" data-icon-size="size-4"></span>
+          Volver al inicio
+        </a>
+        <button
+          type="button"
+          id="theme-toggle"
+          class="focus-ring grid place-items-center size-10 rounded-control text-text-muted hover:bg-surface-alt hover:text-text"
+          aria-pressed="false"
+          aria-label="Cambiar a modo oscuro"
+        >
+          <span data-icon="moon" data-icon-size="size-5"></span>
+        </button>
+      </div>
+    </header>
+
+    <main id="contenido" class="max-w-5xl mx-auto px-4 sm:px-6 py-14 sm:py-20 grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <span class="inline-flex items-center gap-2 rounded-full bg-primary-soft text-primary text-xs font-semibold px-3.5 py-1.5">
+          <span data-icon="bolt" data-icon-size="size-3.5"></span>
+          Hablemos de tu finca
+        </span>
+        <h1 class="font-display text-3xl sm:text-4xl font-semibold text-text mt-5 leading-tight">Cuéntanos sobre tu hato y te contactamos</h1>
+        <p class="mt-4 text-base text-text-muted leading-relaxed">
+          Déjanos tus datos y los de tu finca. Ya sea que tengas dudas, quieras contar tu caso o simplemente saber más de MiHato, con gusto te escribimos.
+        </p>
+
+        <ul class="mt-8 space-y-4">
+          <li class="flex items-start gap-3">
+            <span class="shrink-0 mt-0.5 grid place-items-center size-8 rounded-full bg-primary-soft text-primary" data-icon="check" data-icon-size="size-4"></span>
+            <span class="text-sm text-text-muted leading-relaxed">Sin compromisos ni tarjeta de crédito.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="shrink-0 mt-0.5 grid place-items-center size-8 rounded-full bg-primary-soft text-primary" data-icon="check" data-icon-size="size-4"></span>
+            <span class="text-sm text-text-muted leading-relaxed">Puedes explorar la plataforma mientras tanto.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="shrink-0 mt-0.5 grid place-items-center size-8 rounded-full bg-primary-soft text-primary" data-icon="check" data-icon-size="size-4"></span>
+            <span class="text-sm text-text-muted leading-relaxed">Tus datos solo se usan para responderte.</span>
+          </li>
+        </ul>
+
+        <a
+          href="dashboard.html"
+          class="focus-ring mt-8 inline-flex items-center gap-2 rounded-control border border-border bg-surface px-5 py-2.5 text-sm font-semibold text-text hover:bg-surface-alt"
+        >
+          O prueba la plataforma directamente
+          <span data-icon="arrowRight" data-icon-size="size-4"></span>
+        </a>
+      </div>
+
+      <div class="rounded-card border border-border bg-surface shadow-lifted p-6 sm:p-8">
+        <div id="contact-form-wrap">
+          <form id="contact-form" novalidate class="space-y-5">
+            <div>
+              <label for="f-nombre" class="block text-sm font-medium text-text mb-1.5">Nombre completo <span class="text-danger">*</span></label>
+              <input
+                id="f-nombre"
+                name="nombre"
+                type="text"
+                required
+                autocomplete="name"
+                class="focus-ring w-full rounded-control border border-border bg-bg px-3.5 py-2.5 text-sm text-text placeholder:text-text-muted"
+                placeholder="Ej. Jorge Tarazona"
+              />
+              <p id="f-nombre-error" class="mt-1 text-xs text-danger hidden"></p>
+            </div>
+
+            <div>
+              <label for="f-correo" class="block text-sm font-medium text-text mb-1.5">Correo electrónico <span class="text-danger">*</span></label>
+              <input
+                id="f-correo"
+                name="correo"
+                type="email"
+                required
+                autocomplete="email"
+                class="focus-ring w-full rounded-control border border-border bg-bg px-3.5 py-2.5 text-sm text-text placeholder:text-text-muted"
+                placeholder="tucorreo@ejemplo.com"
+              />
+              <p id="f-correo-error" class="mt-1 text-xs text-danger hidden"></p>
+            </div>
+
+            <div>
+              <label for="f-finca" class="block text-sm font-medium text-text mb-1.5">Nombre de la finca <span class="text-danger">*</span></label>
+              <input
+                id="f-finca"
+                name="finca"
+                type="text"
+                required
+                autocomplete="off"
+                class="focus-ring w-full rounded-control border border-border bg-bg px-3.5 py-2.5 text-sm text-text placeholder:text-text-muted"
+                placeholder="Ej. Finca La Esperanza"
+              />
+              <p id="f-finca-error" class="mt-1 text-xs text-danger hidden"></p>
+            </div>
+
+            <div>
+              <label for="f-cabezas" class="block text-sm font-medium text-text mb-1.5">Cantidad de cabezas de ganado <span class="text-danger">*</span></label>
+              <input
+                id="f-cabezas"
+                name="cabezas"
+                type="number"
+                min="1"
+                step="1"
+                inputmode="numeric"
+                required
+                class="focus-ring w-full rounded-control border border-border bg-bg px-3.5 py-2.5 text-sm text-text placeholder:text-text-muted"
+                placeholder="Ej. 120"
+              />
+              <p id="f-cabezas-error" class="mt-1 text-xs text-danger hidden"></p>
+            </div>
+
+            <button
+              type="submit"
+              class="focus-ring w-full inline-flex items-center justify-center gap-2 rounded-control bg-primary px-5 py-3 text-sm font-semibold text-white hover:bg-primary-hover"
+            >
+              Enviar datos
+              <span data-icon="arrowRight" data-icon-size="size-4"></span>
+            </button>
+            <p class="text-xs text-text-muted text-center">Prototipo académico: tus datos se guardan solo en este navegador.</p>
+          </form>
+
+          <div id="contact-success" class="hidden text-center py-6" tabindex="-1">
+            <span class="inline-grid place-items-center size-14 rounded-full bg-success-soft text-success" data-icon="checkCircle" data-icon-size="size-6"></span>
+            <h2 class="font-display text-xl font-semibold text-text mt-4">¡Gracias<span id="success-name"></span>!</h2>
+            <p class="mt-2 text-sm text-text-muted leading-relaxed">Recibimos tus datos. En una versión real, nuestro equipo se pondría en contacto contigo pronto.</p>
+            <a
+              href="dashboard.html"
+              class="focus-ring mt-6 inline-flex items-center gap-2 rounded-control bg-primary px-5 py-2.5 text-sm font-semibold text-white hover:bg-primary-hover"
+            >
+              Mientras tanto, prueba la plataforma
+              <span data-icon="arrowRight" data-icon-size="size-4"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="border-t border-border bg-surface">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row gap-2 justify-between items-center text-xs text-text-muted">
+        <p>© 2026 MiHato. Proyecto académico de Diseño y Arquitectura Web.</p>
+        <p>Prototipo con datos de demostración.</p>
+      </div>
+    </footer>
+  </body>
+</html>

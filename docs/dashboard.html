@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dashboard · MiHato</title>
+    <meta name="description" content="MiHato — control digital del hato ganadero: animales, vacunación y trazabilidad." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        if (localStorage.getItem("mihato:theme") === "dark") document.documentElement.classList.add("dark");
+      } catch {
+        /* localStorage no disponible */
+      }
+    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%234b6b3a'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/dashboard-hCuU4AV5.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/utils-CvC1LC_K.js">
+    <link rel="modulepreload" crossorigin href="./assets/layout-CZHZwXwL.js">
+    <link rel="stylesheet" crossorigin href="./assets/utils-BxwgMFup.css">
+  </head>
+  <body class="font-body">
+    <div id="sidebar-root"></div>
+    <div class="lg:pl-64 flex flex-col min-h-dvh">
+      <div id="topbar-root"></div>
+      <main id="main-content" class="flex-1 px-4 sm:px-6 py-6 pb-24 lg:pb-10 outline-none">
+        <section aria-label="Indicadores clave" class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+          <div class="rounded-card bg-surface border border-border shadow-soft p-4 sm:p-5">
+            <p class="text-xs font-medium text-text-muted">Cabezas activas</p>
+            <p id="kpi-total" class="mt-1.5 font-display text-2xl sm:text-3xl font-semibold text-text tabular">—</p>
+          </div>
+          <div class="rounded-card bg-surface border border-border shadow-soft p-4 sm:p-5">
+            <p class="text-xs font-medium text-text-muted">Alertas de vacunación</p>
+            <p id="kpi-alertas" class="mt-1.5 font-display text-2xl sm:text-3xl font-semibold text-danger tabular">—</p>
+          </div>
+          <div class="rounded-card bg-surface border border-border shadow-soft p-4 sm:p-5">
+            <p class="text-xs font-medium text-text-muted">Crías &lt; 6 meses</p>
+            <p id="kpi-crias" class="mt-1.5 font-display text-2xl sm:text-3xl font-semibold text-text tabular">—</p>
+          </div>
+          <div class="rounded-card bg-surface border border-border shadow-soft p-4 sm:p-5">
+            <p class="text-xs font-medium text-text-muted">Peso promedio</p>
+            <p id="kpi-peso" class="mt-1.5 font-display text-2xl sm:text-3xl font-semibold text-text tabular">—</p>
+          </div>
+        </section>
+
+        <section aria-labelledby="alertas-heading" class="mt-6 rounded-card bg-surface border border-border shadow-soft">
+          <div class="flex items-center justify-between px-5 py-4 border-b border-border">
+            <h2 id="alertas-heading" class="font-display font-semibold text-text">Alertas de vacunación</h2>
+            <a href="vacunacion.html" class="text-sm font-medium text-primary hover:underline focus-ring rounded">Ver todas</a>
+          </div>
+          <div id="alertas-list" class="divide-y divide-border"></div>
+        </section>
+
+        <div class="mt-6 grid lg:grid-cols-5 gap-4 sm:gap-6">
+          <section aria-labelledby="composicion-heading" class="lg:col-span-2 rounded-card bg-surface border border-border shadow-soft p-5">
+            <h2 id="composicion-heading" class="font-display font-semibold text-text">Composición del hato</h2>
+            <div id="composicion-chart" class="mt-4"></div>
+          </section>
+
+          <section aria-labelledby="actividad-heading" class="lg:col-span-3 rounded-card bg-surface border border-border shadow-soft">
+            <div class="px-5 py-4 border-b border-border">
+              <h2 id="actividad-heading" class="font-display font-semibold text-text">Actividad reciente</h2>
+            </div>
+            <ul id="actividad-list" class="divide-y divide-border"></ul>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div id="bottomnav-root"></div>
+  </body>
+</html>

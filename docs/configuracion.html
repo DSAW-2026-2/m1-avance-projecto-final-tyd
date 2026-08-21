@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Configuración · MiHato</title>
+    <meta name="description" content="Datos de la finca y preferencias de MiHato." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      try {
+        if (localStorage.getItem("mihato:theme") === "dark") document.documentElement.classList.add("dark");
+      } catch {
+        /* localStorage no disponible */
+      }
+    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='12' fill='%234b6b3a'/%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="./assets/configuracion-BUuN_2ya.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/utils-CvC1LC_K.js">
+    <link rel="modulepreload" crossorigin href="./assets/layout-CZHZwXwL.js">
+    <link rel="modulepreload" crossorigin href="./assets/confirm-zDJAw5Fj.js">
+    <link rel="modulepreload" crossorigin href="./assets/toast-Dsopc036.js">
+    <link rel="stylesheet" crossorigin href="./assets/utils-BxwgMFup.css">
+  </head>
+  <body class="font-body">
+    <div id="sidebar-root"></div>
+    <div class="lg:pl-64 flex flex-col min-h-dvh">
+      <div id="topbar-root"></div>
+      <main id="main-content" class="flex-1 px-4 sm:px-6 py-6 pb-24 lg:pb-10 outline-none max-w-2xl">
+        <section aria-labelledby="finca-heading" class="rounded-card bg-surface border border-border shadow-soft p-5 sm:p-6">
+          <h2 id="finca-heading" class="font-display font-semibold text-text">Datos de la finca</h2>
+          <p class="text-sm text-text-muted mt-0.5">Esta información aparece en los reportes de trazabilidad.</p>
+          <form id="finca-form" class="mt-5 space-y-4"></form>
+        </section>
+
+        <section aria-labelledby="pref-heading" class="mt-6 rounded-card bg-surface border border-border shadow-soft p-5 sm:p-6">
+          <h2 id="pref-heading" class="font-display font-semibold text-text">Preferencias</h2>
+          <div class="mt-4 flex items-center justify-between gap-4">
+            <div>
+              <p class="text-sm font-medium text-text">Modo oscuro</p>
+              <p class="text-sm text-text-muted">Cambia la apariencia de toda la aplicación.</p>
+            </div>
+            <button
+              type="button"
+              id="theme-switch"
+              role="switch"
+              aria-checked="false"
+              aria-label="Activar modo oscuro"
+              class="focus-ring relative inline-flex h-7 w-12 shrink-0 items-center rounded-full bg-surface-alt border border-border transition-colors"
+            >
+              <span id="theme-switch-thumb" class="inline-block size-5 rounded-full bg-white shadow-soft translate-x-1 transition-transform"></span>
+            </button>
+          </div>
+        </section>
+
+        <section aria-labelledby="danger-heading" class="mt-6 rounded-card border border-danger/30 bg-danger-soft/40 p-5 sm:p-6">
+          <h2 id="danger-heading" class="font-display font-semibold text-danger">Zona de riesgo</h2>
+          <p class="text-sm text-text-muted mt-0.5">Restablece MiHato a los datos de demostración originales. Esta acción no se puede deshacer.</p>
+          <button
+            type="button"
+            id="btn-reset"
+            class="focus-ring mt-4 inline-flex items-center gap-2 rounded-control border border-danger/40 px-4 py-2.5 text-sm font-semibold text-danger hover:bg-danger-soft"
+          ></button>
+        </section>
+      </main>
+    </div>
+    <div id="bottomnav-root"></div>
+  </body>
+</html>
